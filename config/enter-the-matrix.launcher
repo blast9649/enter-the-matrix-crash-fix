@@ -1,0 +1,19 @@
+#!/bin/bash
+# Enter the Matrix launcher: mounts the ISO (ro) as D: and runs the game in its own Wine prefix.
+ISO="${ETM_ISO:-$HOME/Games/enter the matrix.iso}"  # your own disc image
+MNT="${ETM_MNT:-/run/media/$USER/ETM_DVD}"
+export WINEPREFIX="$HOME/.local/share/wineprefixes/enter-the-matrix"
+export WINEDEBUG=-all
+export WINEDLLOVERRIDES="d3d9=n,b"  # WidescreenFix (ASI loader)
+export DXVK_CONFIG="d3d9.deferSurfaceCreation = True"  # DXVK 3.1.1 in syswow64
+if ! mountpoint -q "$MNT"; then
+  LOOP=$(losetup -j "$ISO" | cut -d: -f1 | head -1)
+  [ -z "$LOOP" ] && LOOP=$(udisksctl loop-setup -r --no-user-interaction -f "$ISO" | grep -o '/dev/loop[0-9]*')
+  sleep 1
+  mountpoint -q "$MNT" || udisksctl mount --no-user-interaction -b "$LOOP" -o ro >/dev/null
+  ln -sfn "$LOOP" "$WINEPREFIX/dosdevices/d::"
+fi
+ln -sfn "$MNT" "$WINEPREFIX/dosdevices/d:"
+cd "$WINEPREFIX/drive_c/Program Files (x86)/Atari/Enter The Matrix" || exit 1
+if [ "$1" = "--options" ]; then exec wine MatrixOptions.exe; fi
+exec wine Matrix.exe "$@"

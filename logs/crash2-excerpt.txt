@@ -1,0 +1,9 @@
+168256-012c:trace:seh:call_vectored_handlers calling handler at 753E4FE0 code=c0000005 flags=0
+168257-012c:trace:seh:call_vectored_handlers handler at 753E4FE0 returned 0
+168258-012c:trace:seh:call_seh_handlers calling handler at 008ACF6C code=c0000005 flags=0
+168259-012c:trace:seh:call_seh_handlers handler at 008ACF6C returned 1
+168260-012c:trace:seh:call_seh_handlers calling handler at 008ACF6C code=c0000005 flags=0
+168261:wine: Unhandled page fault on read access to 00000020 at address 005F5A0A (thread 012c), starting debugger...
+168262-012c:trace:seh:start_debugger Starting debugger L"cmd /c C:\\etm-bt.bat 296 304"
+168263-(EE) failed to read Wayland events: Broken pipe
+168264-X connection to :4 broken (explicit kill or server shutdown).

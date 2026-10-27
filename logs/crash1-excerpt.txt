@@ -1,0 +1,17 @@
+17229-012c:trace:seh:call_seh_handlers calling handler at 008ACF6C code=c0000005 flags=0
+17230-012c:trace:seh:call_seh_handlers handler at 008ACF6C returned 1
+17231-012c:trace:seh:call_seh_handlers calling handler at 008ACF6C code=c0000005 flags=0
+17232:wine: Unhandled page fault on read access to 00000020 at address 005F5A0A (thread 012c), starting debugger...
+17233-012c:trace:seh:start_debugger Starting debugger L"winedbg --auto 296 308"
+17234-012c:trace:seh:call_seh_handlers handler at 008ACF6C returned 1
+17235-012c:trace:seh:call_seh_handlers calling handler at 7BCB8DD0 code=c0000005 flags=0
+17236-012c:trace:seh:call_seh_handlers handler at 7BCB8DD0 returned 1
+17237-012c:trace:seh:dispatch_exception code=c0000005 (EXCEPTION_ACCESS_VIOLATION) flags=0 addr=00000000005F5A0A
+17238-012c:trace:seh:dispatch_exception  info[0]=0000000000000000
+17239-012c:trace:seh:dispatch_exception  info[1]=0000000000000020
+17240-012c:trace:seh:dispatch_exception rip=000000007bc41110 rsp=00000001000ff5d0 rbp=000000000026fc5c eflags=00010202
+17241-012c:trace:seh:dispatch_exception rax=0000000000000000 rbx=000000000014d000 rcx=0000000000000000 rdx=0000000000000008
+17242-012c:trace:seh:dispatch_exception rsi=000000000097f800 rdi=00000000031b1814  r8=0000000000295008  r9=0000000000290000
+17243-012c:trace:seh:dispatch_exception r10=000000000000000a r11=0000000000000aff r12=0000000000148000 r13=00000001000ffd24
+17244-012c:trace:seh:dispatch_exception r14=00000001000ff5d0 r15=00000001000ff710 mxcsr=00001f80 cs=0033 ss=0000
+17245-012c:trace:seh:call_seh_handlers calling handler 00006FFFFC321564 (rec=00000001000FF3C0, frame=1000ff620 context=00000001000FEED0, dispatch=00000001000FE7E0)
